@@ -20,8 +20,8 @@ body {
 
 #start {
   background-color: green;
-  top: 20px;
-  left: 20px;
+  top: 0px;
+  left: 0px;
 }
 
 #end {
@@ -33,6 +33,7 @@ body {
 .player {
   width: 20px;
   height: 20px;
-  background-color: blue;
+  background-image: url("../assets/charforward.png");
+  background-size: cover;
   position: absolute;
 }/*# sourceMappingURL=styles.css.map */
