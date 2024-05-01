@@ -49,12 +49,48 @@ $(document).ready(function() {
     });
 
     // Create maze walls
-    var wallCoordinates = [
-        {top:20, left:40},//wall 1
-        {top:20, left:100},//wall 2
-        {top: 20, left: 160},
-        //Add more walls here and in the scss
-    ]
+    const levels = {
+        easy: [
+            { top: 0, left: 20 },
+            { top: 0, left: 100 },
+            { top: 0, left: 240 },
+            { top: 20, left: 20 },
+            { top: 20, left: 60 },
+            { top: 20, left: 100 },
+            { top: 20, left: 120 },
+            { top: 20, left: 140 },
+            { top: 20, left: 180 },
+            { top: 20, left: 200 },
+            { top: 20, left: 220 },
+            { top: 20, left: 240 },
+            { top: 20, left: 20 },
+            { top: 20, left: 20 },
+            { top: 20, left: 20 },
+            { top: 100, left: 40 },
+            { top: 180, left: 40 },
+            // Add more walls here for the easy level
+        ],
+        medium: [
+            { top: 20, left: 40 },
+            { top: 80, left: 160 },
+            { top: 140, left: 40 },
+            // Add more walls here for the medium level
+        ],
+        hard: [
+            { top: 20, left: 40 },
+            { top: 80, left: 40 },
+            { top: 140, left: 40 },
+            // Add more walls here for the hard level
+        ]
+    };
+
+    function createMaze(level) {
+        wallCoordinates = levels[level]
+    }
+    $("start-button").click("click", function() {
+        difficulty = document.getElementById("difficulty-select").value
+        createMaze(difficulty)
+    })
 
     for (var i = 0; i < wallCoordinates.length; i++) {
         $('#maze').append('<div class="wall" style="top: ' + wallCoordinates[i].top + 'px; left: ' + wallCoordinates[i].left + 'px;"></div>');
